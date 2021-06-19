@@ -2,18 +2,18 @@ package ru.neutrino;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class MyDispatcher extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class DispatcherConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
         // TODO Auto-generated method stub
-        return new Class[] { WebConfig.class };
+        return new Class[] { ProjectConfig.class };
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
         // TODO Auto-generated method stub
-        return new Class[] { WebConfig.class };
+        return new Class[] { ProjectConfig.class };
     }
 
     @Override

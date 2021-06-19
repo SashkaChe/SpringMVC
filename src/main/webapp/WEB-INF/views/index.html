@@ -10,6 +10,10 @@
 
 <h1>PREVED!</h1>
 
+ <div th:each="person : ${people}">
+<div th:text="${person.getName()}"></div>
+ </div>
+
 </body>
 
 </html>
