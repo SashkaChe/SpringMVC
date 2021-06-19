@@ -2,16 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
     <title>My app</title>
 </head>
 
 <body>
 
-<h1>PREVED!</h1>
+<h1>ПРЕВЕД!</h1>
 
- <div th:each="person : ${people}">
-<div th:text="${person.getName()}"></div>
+<div th:each="person : ${people}">
+<div th:text="'Имя: ' + ${person.getName() + ' Phone: ' + person.getPhone()}"></div>
  </div>
 
 </body>
