@@ -2,16 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-    <title>My app</title>
+    <title>Главная - список юзеров в базе</title>
 </head>
 
 <body>
 
-<h1>ПРЕВЕД!</h1>
+<h1>Список всех юзеров</h1>
 
 <div th:each="person : ${people}">
-<div th:text="'Имя: ' + ${person.getName() + ' Phone: ' + person.getPhone()}"></div>
- </div>
+<a th:href="@{/{id}(id=${person.getId()})}" th:text="${person.getName()}"></a>
+</div>
+
+<br>
+<form>
+    <input type="button" onclick="window.location.href = '/new';" value="Добавить юзера"/>
+</form>
 
 </body>
 

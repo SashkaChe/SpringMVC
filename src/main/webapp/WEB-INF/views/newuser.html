@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title th:text="'Юзер ' + ${single.getName()}"></title>
+</head>
+
+<body>
+
+<h2 th:text="'Юзер ' + ${single.getName()} + ' добавлен'"></h2>
+
+<div th:text="${single.getName()}"></div>
+<div th:text="${single.getPhone()}"></div>
+
+<br>
+<a href="/">Вернуться на главную</a>
+
+</body>
+
+</html>

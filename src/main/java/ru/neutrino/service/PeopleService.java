@@ -17,4 +17,13 @@ public class PeopleService {
         List<People> allPeople = peopleDAO.findAll();
         return allPeople;
     }
+
+    public People findById(long id) {
+        return peopleDAO.findById(id).orElse(null);
+    }
+
+    public People saveAndFlush(People people) {
+       return peopleDAO.saveAndFlush(people);
+    }
+
 }
