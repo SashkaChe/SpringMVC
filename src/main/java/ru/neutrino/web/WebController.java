@@ -4,12 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.neutrino.dao.SpringDataConfig;
 import ru.neutrino.domain.People;
 import ru.neutrino.service.PeopleService;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Controller
@@ -44,17 +41,26 @@ public class WebController {
     }
 
 
-
     @PostMapping()
-    public String save(@ModelAttribute("newpeople") People people, Model model) {
+    public String save(@ModelAttribute("newpeople") People people) {
 
-    people = peopleservice.saveAndFlush(people);
+        peopleservice.saveAndFlush(people);
 
-    model.addAttribute("single", people);
-
-    return "newuser";
+        return "redirect:/";
 
     }
+
+/*
+    @PostMapping()
+    public String save(@ModelAttribute("newpeople") People people) {
+
+    peopleservice.saveAndFlush(people);
+
+    return "redirect:/";
+
+    }
+
+ */
 }
 
 

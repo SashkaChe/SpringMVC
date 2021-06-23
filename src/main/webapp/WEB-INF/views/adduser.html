@@ -2,22 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-    <title>Добавить юзера</title>
+    <title>Р”РѕР±Р°РІРёС‚СЊ СЋР·РµСЂР°</title>
 </head>
 
 <body>
 
-<h2>Добавить юзера</h2>
+<h2>Р”РѕР±Р°РІРёС‚СЊ СЋР·РµСЂР°</h2>
 
 <form th:method="POST" th:action="@{/}" th:object="${newpeople}">
 
-    <label for="name">Имя</label>
+    <label for="name">РРјСЏ</label>
     <input type="text" th:field="*{name}" id="name">
     <br><br>
-    <label for="phone">Телефон</label>
+    <label for="phone">РўРµР»РµС„РѕРЅ</label>
     <input type="text" th:field="*{phone}" id="phone">
     <br><br>
-    <input type="submit" value="Добавить юзера">
+    <input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ СЋР·РµСЂР°">
 
 </form>
 
