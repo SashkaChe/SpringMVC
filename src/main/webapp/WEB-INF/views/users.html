@@ -13,7 +13,13 @@
 <div th:text="${single.getPhone()}"></div>
 
 <br>
+<a th:href="@{/{id}/edit(id=${single.getId()})}">Редактировать</a>
+
+
+<br>
 <a href="/">Вернуться на главную</a>
+
+
 
 </body>
 

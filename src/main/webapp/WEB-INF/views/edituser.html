@@ -3,16 +3,14 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=cp1251">
-    <title>Добавить юзера</title>
+    <title>Редактировать юзера</title>
 </head>
 
 <body>
 
-<h2>Добавить юзера</h2>
+<h2>Редактировать юзера</h2>
 
-
-
-<form th:method="POST" th:action="@{/}" th:object="${newpeople}">
+<form th:method="POST" th:action="@{/{id}(id=${editpeople.getId()})}" th:object="${editpeople}">
 
     <label for="name">Имя</label>
     <input type="text" th:field="*{name}" id="name">
@@ -20,11 +18,9 @@
     <label for="phone">Телефон</label>
     <input type="text" th:field="*{phone}" id="phone">
     <br><br>
-    <input type="submit" value="Добавить юзера">
+    <input type="submit" value="Сохранить изменения">
 
 </form>
-
-
 
 </body>
 

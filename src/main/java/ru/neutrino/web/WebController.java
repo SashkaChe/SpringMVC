@@ -40,27 +40,40 @@ public class WebController {
         return "adduser";
     }
 
+    @GetMapping("/{id}/edit")
+    public String edituser(@PathVariable("id") long id, Model model) {
+
+
+        People obj = peopleservice.findById(id);
+
+        if (obj == null) {
+            return "empty";
+        }
+
+        model.addAttribute("editpeople", obj);
+        return "edituser";
+    }
+
+
+    @PostMapping("/{id}")
+    public String edit(@ModelAttribute("editpeople") People people, @PathVariable("id") long id) {
+
+      People obj = peopleservice.findById(id);
+
+      obj.setName(people.getName());
+      obj.setPhone(people.getPhone());
+
+      peopleservice.saveAndFlush(obj);
+      return "redirect:/";
+    }
+
 
     @PostMapping()
     public String save(@ModelAttribute("newpeople") People people) {
-
         peopleservice.saveAndFlush(people);
-
         return "redirect:/";
-
     }
 
-/*
-    @PostMapping()
-    public String save(@ModelAttribute("newpeople") People people) {
-
-    peopleservice.saveAndFlush(people);
-
-    return "redirect:/";
-
-    }
-
- */
 }
 
 
