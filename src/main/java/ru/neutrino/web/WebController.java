@@ -54,31 +54,30 @@ public class WebController {
         return "edituser";
     }
 
-
-    @PostMapping("/{id}")
-    public String edit(@ModelAttribute("editpeople") People people, @PathVariable("id") long id) {
-
-      People obj = peopleservice.findById(id);
-
-      obj.setName(people.getName());
-      obj.setPhone(people.getPhone());
-
-      peopleservice.saveAndFlush(obj);
-      return "redirect:/";
-    }
-
-
     @PostMapping()
     public String save(@ModelAttribute("newpeople") People people) {
         peopleservice.saveAndFlush(people);
         return "redirect:/";
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete/{id}")
     public String delete(@PathVariable("id") long id) {
         peopleservice.delete(peopleservice.findById(id));
         return "redirect:/";
     }
+
+    @PostMapping("/{id}")
+    public String edit(@ModelAttribute("editpeople") People people, @PathVariable("id") long id) {
+
+        People obj = peopleservice.findById(id);
+
+        obj.setName(people.getName());
+        obj.setPhone(people.getPhone());
+
+        peopleservice.saveAndFlush(obj);
+        return "redirect:/";
+    }
+
 
 }
 

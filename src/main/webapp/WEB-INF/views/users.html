@@ -21,7 +21,7 @@
 <a href="/">Вернуться на главную</a>
 <br>
 
-<form th:method="DELETE" th:action="@{/{id}(id=${single.getId()})}">
+<form th:method="POST" th:action="@{/delete/{id}(id=${single.getId()})}">
     <input type="submit" value="Удалить"/>
 </form>
 
