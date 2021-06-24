@@ -74,6 +74,12 @@ public class WebController {
         return "redirect:/";
     }
 
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") long id) {
+        peopleservice.delete(peopleservice.findById(id));
+        return "redirect:/";
+    }
+
 }
 
 

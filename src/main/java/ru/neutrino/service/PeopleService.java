@@ -27,4 +27,7 @@ public class PeopleService {
        return peopleDAO.saveAndFlush(people);
     }
 
+    public void delete(People people) {
+        peopleDAO.delete(people);
+    }
 }
