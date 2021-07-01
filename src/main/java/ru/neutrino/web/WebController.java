@@ -1,8 +1,10 @@
 package ru.neutrino.web;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.neutrino.domain.People;
 import ru.neutrino.service.PeopleService;
@@ -55,10 +57,17 @@ public class WebController {
     }
 
     @PostMapping()
-    public String save(@ModelAttribute("newpeople") People people) {
-        peopleservice.saveAndFlush(people);
-        return "redirect:/";
+    public String save(@ModelAttribute("newpeople") @Valid People newpeople, BindingResult br) {
+
+        if(br.hasErrors()) return "adduser";
+
+      //  peopleservice.saveAndFlush(newpeople);
+       return "redirect:/";
+
+
     }
+
+
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable("id") long id) {
